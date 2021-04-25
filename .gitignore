@@ -16,3 +16,4 @@
 
 # Custom
 samconfig.toml
+.aws-sam

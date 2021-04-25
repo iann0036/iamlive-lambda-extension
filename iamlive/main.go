@@ -9,7 +9,8 @@ import (
 	"path/filepath"
 	"syscall"
 
-	"iann0036/iamlive-lambda-extension/extension"
+	"github.com/iann0036/iamlive-lambda-extension/iamlive/extension"
+	"github.com/iann0036/iamlive/iamlivecore"
 )
 
 var (
@@ -35,6 +36,11 @@ func main() {
 		panic(err)
 	}
 	println(printPrefix, "Register response:", prettyPrint(res))
+
+	os.Setenv("HTTP_PROXY", "http://127.0.0.1:10080")
+	os.Setenv("HTTPS_PROXY", "http://127.0.0.1:10080")
+	os.Setenv("AWS_CA_BUNDLE", "/tmp/iamlive-ca.pem")
+	go iamlivecore.RunWithArgs(false, "default", false, "", 0, false, "127.0.0.1", "proxy", "127.0.0.1:10080", "/tmp/iamlive-ca.pem", "/tmp/iamlive-ca.key", "", false, false)
 
 	// Will block until shutdown event is received or cancelled via the context.
 	processEvents(ctx)
