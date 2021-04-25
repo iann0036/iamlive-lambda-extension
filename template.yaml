@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Transform: AWS::Serverless-2016-10-31
+
+Description: iamlive Lambda Extension Layer
+
+Resources:
+
+  IamliveExtensionLayer:
+    Type: AWS::Serverless::LayerVersion
+    Metadata:
+      BuildMethod: makefile
+    Properties:
+      LayerName: iamlive
+      Description: iamlive Lambda Extension Layer
+      ContentUri: iamlive/
+      LicenseInfo: MIT
+
+Outputs:
+
+  IamliveExtensionLayer:
+    Description: iamlive Extension Layer Version ARN
+    Value: !Ref IamliveExtensionLayer
