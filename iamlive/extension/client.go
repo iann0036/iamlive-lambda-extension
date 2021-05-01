@@ -58,7 +58,7 @@ const (
 type Client struct {
 	baseURL     string
 	httpClient  *http.Client
-	extensionID string
+	ExtensionID string
 }
 
 // NewClient returns a Lambda Extensions API client
@@ -103,8 +103,8 @@ func (e *Client) Register(ctx context.Context, filename string) (*RegisterRespon
 	if err != nil {
 		return nil, err
 	}
-	e.extensionID = httpRes.Header.Get(extensionIdentiferHeader)
-	print(e.extensionID)
+	e.ExtensionID = httpRes.Header.Get(extensionIdentiferHeader)
+	fmt.Println("Extension id:", e.ExtensionID)
 	return &res, nil
 }
 
@@ -117,7 +117,7 @@ func (e *Client) NextEvent(ctx context.Context) (*NextEventResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	httpReq.Header.Set(extensionIdentiferHeader, e.extensionID)
+	httpReq.Header.Set(extensionIdentiferHeader, e.ExtensionID)
 	httpRes, err := e.httpClient.Do(httpReq)
 	if err != nil {
 		return nil, err
@@ -147,7 +147,7 @@ func (e *Client) InitError(ctx context.Context, errorType string) (*StatusRespon
 	if err != nil {
 		return nil, err
 	}
-	httpReq.Header.Set(extensionIdentiferHeader, e.extensionID)
+	httpReq.Header.Set(extensionIdentiferHeader, e.ExtensionID)
 	httpReq.Header.Set(extensionErrorType, errorType)
 	httpRes, err := e.httpClient.Do(httpReq)
 	if err != nil {
@@ -178,7 +178,7 @@ func (e *Client) ExitError(ctx context.Context, errorType string) (*StatusRespon
 	if err != nil {
 		return nil, err
 	}
-	httpReq.Header.Set(extensionIdentiferHeader, e.extensionID)
+	httpReq.Header.Set(extensionIdentiferHeader, e.ExtensionID)
 	httpReq.Header.Set(extensionErrorType, errorType)
 	httpRes, err := e.httpClient.Do(httpReq)
 	if err != nil {
