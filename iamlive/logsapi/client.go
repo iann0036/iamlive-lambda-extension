@@ -110,7 +110,7 @@ type SubscribeRequest struct {
 
 // SubscribeResponse is the response body that is received from Logs API on subscribe
 type SubscribeResponse struct {
-	body string
+	Body string
 }
 
 // Subscribe calls the Logs API to subscribe for the log events.

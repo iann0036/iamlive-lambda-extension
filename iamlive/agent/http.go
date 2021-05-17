@@ -59,8 +59,6 @@ func (h *LogsApiHttpListener) http_handler(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
-	fmt.Println("Logs API event received:", string(body))
-
 	// Puts the log message into the queue
 	err = h.logQueue.Put(string(body))
 	if err != nil {
@@ -119,11 +117,11 @@ func (a HttpAgent) Init(agentID string) error {
 		return err
 	}
 
-	eventTypes := []logsapi.EventType{logsapi.Platform, logsapi.Function}
+	eventTypes := []logsapi.EventType{logsapi.Platform}
 	bufferingCfg := logsapi.BufferingCfg{
 		MaxItems:  10000,
 		MaxBytes:  262144,
-		TimeoutMS: 1000,
+		TimeoutMS: 100,
 	}
 	if err != nil {
 		return err
