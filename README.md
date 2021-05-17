@@ -1,10 +1,12 @@
 # iamlive Lambda Extension
 
+[![](https://img.shields.io/badge/serverless%20application%20repo-iamlive-blue)](https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/app?applicationId=arn:aws:serverlessrepo:ap-southeast-2:767145733124:applications/iamlive)
+
 The [iamlive](https://github.com/iann0036/iamlive) Lambda Extension helps generate a least-privilege IAM policy by monitoring the AWS calls made within the Lambda execution environment.
 
 ## Installation
 
-You must first install the Lambda Layer into your environment by installing it from the Serverless Application Repository, or by performing a `sam build && sam deploy` from the repository root.
+You must first install the Lambda Layer into your environment by installing it from the [Serverless Application Repository](https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/app?applicationId=arn:aws:serverlessrepo:ap-southeast-2:767145733124:applications/iamlive), or by performing a `sam build && sam deploy` from the repository root.
 
 Once installed, you should attach the `iamlive` Lambda Layer to the function you wish to monitor using the "Specify an ARN" option and set the following environment variables within the Lambda function:
 
