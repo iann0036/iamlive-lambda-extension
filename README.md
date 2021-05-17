@@ -6,7 +6,7 @@ The [iamlive](https://github.com/iann0036/iamlive) Lambda Extension helps genera
 
 You must first install the Lambda Layer into your environment by installing it from the Serverless Application Repository, or by performing a `sam build && sam deploy` from the repository root.
 
-Once installed, you should attach the `iamlive` Lambda Layer to the function you wish to monitor and set the following environment variables within the Lambda function:
+Once installed, you should attach the `iamlive` Lambda Layer to the function you wish to monitor using the "Specify an ARN" option and set the following environment variables within the Lambda function:
 
 Key             | Value
 --------------- | ------------------------
