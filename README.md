@@ -1,6 +1,6 @@
 # iamlive Lambda Extension
 
-[![](https://img.shields.io/badge/serverless%20application%20repo-iamlive-blue)](https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/app?applicationId=arn:aws:serverlessrepo:ap-southeast-2:767145733124:applications/iamlive)
+[![](https://img.shields.io/badge/serverless%20application%20repo-iamlive-blue.svg)](https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/app?applicationId=arn:aws:serverlessrepo:ap-southeast-2:767145733124:applications/iamlive)
 
 The [iamlive](https://github.com/iann0036/iamlive) Lambda Extension helps generate a least-privilege IAM policy by monitoring the AWS calls made within the Lambda execution environment.
 
