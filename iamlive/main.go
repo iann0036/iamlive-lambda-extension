@@ -116,11 +116,7 @@ func processEvents(ctx context.Context) {
 			// Exit if we receive a SHUTDOWN event
 			if res.EventType == extension.Shutdown {
 				println(printPrefix, "Received SHUTDOWN event")
-
-				compactedBuffer := new(bytes.Buffer)
-				json.Compact(compactedBuffer, iamlivecore.GetPolicyDocument())
-				println(printPrefix, "Result IAM Policy:", compactedBuffer.String())
-
+				time.Sleep(500 * time.Millisecond)
 				logsApiAgent.Shutdown()
 				return
 			}
